@@ -34,5 +34,6 @@ jobs:
     - name: Publish to GitHub Packages Apache Maven
       run: |
         sed -i 's/PACKAGE_VERSION/${{ env.PACKAGE_VERSION }}/g' pom.xml
+        mvn -X deploy -s settings.xml
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }} 
